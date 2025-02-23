@@ -1,14 +1,73 @@
 <!DOCTYPE html>
-<html lang = "es">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tailwind grounds</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card - Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="max-w-md w-full mx-4">
+        <!-- Profile Card -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+            <!-- Profile Header -->
+            <div class="bg-blue-600 p-6">
+                <div class="flex items-center space-x-4">
+                    <img src="https://via.placeholder.com/80" alt="Profile" 
+                         class="w-20 h-20 rounded-full border-4 border-white hover:scale-105 transition-transform">
+                    <div>
+                        <h2 class="text-white text-xl font-bold">John Doe</h2>
+                        <p class="text-blue-100">Web Developer</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Details -->
+            <div class="p-6">
+                <div class="mb-4">
+                    <h3 class="text-gray-600 font-semibold mb-2">About Me</h3>
+                    <p class="text-gray-500 text-sm">
+                        Passionate web developer with 5 years of experience in building modern web applications.
+                    </p>
+                </div>
+
+                <!-- Skills -->
+                <div class="mb-4">
+                    <h3 class="text-gray-600 font-semibold mb-2">Skills</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">HTML/CSS</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">JavaScript</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">React</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Node.js</span>
+                    </div>
+                </div>
+
+                <!-- Contact Button -->
+                <button id="contactBtn" 
+                        class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Contact Me
+                </button>
+            </div>
+        </div>
+
+        <!-- Hidden Contact Info -->
+        <div id="contactInfo" class="hidden mt-4 bg-white p-4 rounded-lg shadow-md">
+            <p class="text-gray-600">📧 john.doe@example.com</p>
+            <p class="text-gray-600">📱 +1 234 567 890</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple JavaScript for interaction
+        const contactBtn = document.getElementById('contactBtn');
+        const contactInfo = document.getElementById('contactInfo');
+
+        contactBtn.addEventListener('click', () => {
+            contactInfo.classList.toggle('hidden');
+            contactBtn.textContent = contactInfo.classList.contains('hidden') 
+                ? 'Contact Me' 
+                : 'Hide Contact';
+        });
+    </script>
+</body>
 </html>
